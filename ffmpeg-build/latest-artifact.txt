@@ -1,0 +1,8 @@
+run_id=37921349697
+artifact_id=11612312331
+artifact_name=media3-ffmpeg-1.11.1-eac3-lgpl
+aar_sha256=01d38ef587ea335ca77bfbe55e70ff9582b71461756b761f3410005080917897
+media3=1.11.1
+ffmpeg=release/6.0
+decoders=ac3,eac3
+license=AndroidX-Apache-2.0+FFmpeg-LGPL-2.1-or-later
