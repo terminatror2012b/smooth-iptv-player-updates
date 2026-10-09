@@ -18,6 +18,22 @@ jobs:
       - name: Checkout release repository
         uses: actions/checkout@v4
 
+      - name: Publish run locator
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p ffmpeg-build
+          cat > ffmpeg-build/latest-run.txt <<EOF
+          run_id=$GITHUB_RUN_ID
+          workflow_commit=$GITHUB_SHA
+          status=started
+          EOF
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ffmpeg-build/latest-run.txt
+          git commit -m "Record Media3 FFmpeg build run $GITHUB_RUN_ID"
+          git push
+
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
